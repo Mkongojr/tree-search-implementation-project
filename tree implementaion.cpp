@@ -32,3 +32,16 @@ class BST{
     }
     void insert(int value);
 };
+
+//implementing the insertRec function to insert nodes
+Node* insertRec(Node*node,int value){
+    if (node==nullptr){
+        return new Node(value);
+    }
+    if(value<node->data){
+        node->left = insertRec(node->left, value);
+    }else if(value>node->data){
+        node->right = insertRec(node->right, value);
+    }
+    return node;
+}
