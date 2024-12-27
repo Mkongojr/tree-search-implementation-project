@@ -21,3 +21,14 @@ class BST{
         root = nullptr;
     }
 };
+
+//adding insert function declararion to the class
+class BST{
+    public:
+    Node* root;
+
+    BST(){
+        root = nullptr;
+    }
+    void insert(int value);
+};
