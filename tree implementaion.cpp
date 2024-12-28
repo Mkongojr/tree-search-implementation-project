@@ -31,17 +31,25 @@ class BST{
         root = nullptr;
     }
     void insert(int value);
+
+    private:
+        Node *insertRec(Node *node, int value);
 };
 
 //implementing the insertRec function to insert nodes
-Node* insertRec(Node*node,int value){
+Node* BST::insertRec(Node* node,int value){
     if (node==nullptr){
         return new Node(value);
     }
-    if(value<node->data){
+    if(value < node->data){
         node->left = insertRec(node->left, value);
-    }else if(value>node->data){
+    }else if(value > node->data){
         node->right = insertRec(node->right, value);
     }
     return node;
+}
+
+//implementing insert method to insert a node to the tree
+void BST::insert(int value){
+    root = insertRec(root, value);
 }
